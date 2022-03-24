@@ -68,7 +68,7 @@ console.log('')
 
 if (mode === 'diff' && !gsha) {
   console.log(colors.magenta('error'), '[mode:diff] please set Git SHA option. [--gsha ***]')
-  return
+  return false
 }
 
 switch (mode) {
