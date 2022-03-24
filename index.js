@@ -6,9 +6,8 @@
 
 // TODO
 // treeファイル化(options追加)
-// 設定ファイル読み込む（jsonやjsのimport object.assign）
 
-import { colors, convertTime } from `./lib/utilities`
+import { colors, convertTime } from './lib/utilities'
 import {
   dist,
   rname,
@@ -21,7 +20,7 @@ import {
 
   gsha,
   gdroot
-} from `./lib/arguments`
+} from './lib/arguments'
 
 import { execSync } from 'child_process'
 import path from 'path'
