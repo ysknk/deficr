@@ -1,0 +1,24 @@
+{
+  "name": "deficr",
+  "version": "0.1.0",
+  "description": "delivery file creator",
+  "main": "./index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "bin": {
+    "deficr": "./bin/deficr"
+  },
+  "keywords": [
+    "delivery",
+    "file",
+    "zip"
+  ],
+  "author": "ysknk",
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^10.0.1",
+    "path": "^0.12.7",
+    "yargs": "^17.3.1"
+  }
+}
