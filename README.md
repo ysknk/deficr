@@ -14,12 +14,14 @@ zipファイル化を楽にする。
 
 ## Requirement
 
-* Node.js
+* Node.js -> check cmd `node -v`
+* Zip -> check cmd `zip -v`
+* Git -> check cmd `git -v` *Git管理しているプロジェクトのみ対象
 
 ## Install
 
 ```sh
-npm i -D git+https://ysknk/deficr.git
+npm i -D https://github.com/ysknk/deficr.git
 ```
 
 ## Usage

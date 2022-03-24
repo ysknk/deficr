@@ -5,18 +5,11 @@
 /* @author ysknk */
 
 // TODO
-// OK: distが指定なくてrootにある場合（直接distをzip化するようなパターン）
-// OK: git diffの差分zip化（diff差分か全量allのoptions追加）、ディレクトリ以下指定できる？そもそも書き出し含めていない疑惑 指定ディレクトリにzipが作成されるので注意
 // treeファイル化(options追加)
 // 設定ファイル読み込む（jsonやjsのimport object.assign）
 
-/*---
- *
- * vars
- *
- ---*/
-const { colors, convertTime } = require(__dirname + '/lib/utilities')
-const {
+import { colors, convertTime } from `${__dirname}/lib/utilities`
+import {
   dist,
   rname,
   target,
@@ -28,13 +21,18 @@ const {
 
   gsha,
   gdroot
-} = require(__dirname + '/lib/arguments')
+} from `${__dirname}/lib/arguments`
 
-const { execSync } = require('child_process')
-const path = require('path')
-const fs = require('fs')
-const fse = require('fs-extra')
+import { execSync } from 'child_process'
+import path from 'path'
+import fs from 'fs'
+import fse from 'fs-extra'
 
+/*---
+ *
+ * vars
+ *
+ ---*/
 const packageName = 'deficr'
 
 const cwd = process.cwd()
