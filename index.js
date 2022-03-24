@@ -7,7 +7,7 @@
 // TODO
 // treeファイル化(options追加)
 
-import { colors, convertTime } from './lib/utilities'
+import { colors, convertTime } from './lib/utilities.js'
 import {
   dist,
   rname,
@@ -20,7 +20,7 @@ import {
 
   gsha,
   gdroot
-} from './lib/arguments'
+} from './lib/arguments.js'
 
 import { execSync } from 'child_process'
 import path from 'path'
@@ -68,7 +68,7 @@ console.log('')
 
 if (mode === 'diff' && !gsha) {
   console.log(colors.magenta('error'), '[mode:diff] please set Git SHA option. [--gsha ***]')
-  return false
+  process.exit(1)
 }
 
 switch (mode) {
