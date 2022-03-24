@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-import index from '../'
+import index from '../index.js'
