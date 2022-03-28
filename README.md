@@ -26,14 +26,24 @@ npm i -D https://github.com/ysknk/deficr.git
 
 ## Usage
 
+### add script in package.json
+
+```json
+{
+  "scripts": {
+    "deficr": "deficr"
+  },
+}
+```
+
 ```sh
 # check arguments help
-deficr --help
+npm run deficr -- --help
 
 # ex: all min options [./dist/ -> ./yymmdd.zip]
-deficr
+npm run deficr
 
 # ex: diff min options [./$(zipTargetDir)/yymmdd.zip]
-deficr --mode diff --gsha $(gitHash) --gdroot "$(zipTargetDir)"
+npm run deficr -- --mode diff --gsha $(gitHash) --gdroot "$(zipTargetDir)"
 ```
 
