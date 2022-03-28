@@ -3,6 +3,8 @@
 ## Description
 
 deficr = delivery file creator  
+npm modules  
+
 ファイル納品時の手間を削減するために作成。  
 zipファイル化を楽にする。  
 以下のようなケースに対応。  
