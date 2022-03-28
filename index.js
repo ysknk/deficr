@@ -7,7 +7,7 @@
 // TODO
 // treeファイル化(options追加)
 
-import { colors, convertTime } from './lib/utilities.js'
+import { packageName, colors, convertTime } from './lib/utilities.js'
 import {
   dist,
   rname,
@@ -32,7 +32,6 @@ import fse from 'fs-extra'
  * vars
  *
  ---*/
-const packageName = 'deficr'
 
 const cwd = process.cwd()
 
