@@ -9,7 +9,7 @@
   "bin": {
     "deficr": "./bin/deficr.js"
   },
-　　　　"type": "module",
+  "type": "module",
   "keywords": [
     "delivery",
     "file",
