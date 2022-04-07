@@ -6,6 +6,10 @@
   "scripts": {
     "test": "test"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:ysknk/deficr.git"
+  },
   "bin": {
     "deficr": "./bin/deficr.js"
   },
