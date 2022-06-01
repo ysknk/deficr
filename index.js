@@ -6,9 +6,12 @@
 
 // TODO
 // treeファイル化(options追加)
+//
+import utils from 'node-package-utilities'
 
-import { packageName, colors, convertTime } from './lib/utilities.js'
 import {
+  packageName,
+
   dist,
   rname,
   target,
@@ -48,25 +51,15 @@ const rmOptions = {
   force: true
 }
 
-const hrtimes = []
-hrtimes.push(process.hrtime())
-
-const onSuccess = (string) => {
-  hrtimes.push(process.hrtime())
-  console.log(colors.brightGreen('success'), `${string} - ${convertTime(hrtimes[hrtimes.length - 1], 's').string}`)
-}
-
 /*---
  *
  * procs
  *
  ---*/
-console.log('')
-console.log(colors.blue('info'), packageName, 'Start')
-console.log('')
+utils.message.begin()
 
 if (mode === 'diff' && !gsha) {
-  console.log(colors.magenta('error'), '[mode:diff] please set Git SHA option. [--gsha ***]')
+  utils.message.failure('[mode:diff] please set Git SHA option. [--gsha ***]')
   process.exit(1)
 }
 
@@ -82,14 +75,13 @@ switch (mode) {
     // NOTE: Create zip
     try {
       execSync(`${cd}git archive${format}${prefix} HEAD \`eval ${diff}\` -o ${zname}.zip`, execOptions)
-      onSuccess(`Create ${zname}.zip`)
+      utils.message.success(`Create ${zname}.zip`)
     } catch (e) {
-      console.log(colors.magenta('error'), e)
+      utils.message.failure(e)
       console.log('Do you manage with git?')
     }
 
     if (zinfo) {
-      console.log('')
       execSync(`zipinfo ${zname}.zip`, execOptions)
     }
     break
@@ -101,10 +93,10 @@ switch (mode) {
     // NOTE: Copy from target to rname
     if (target) {
       fse.copySync(path.join(distPath, target), path.join(deliveryPath, target))
-      onSuccess(`Copy ${dist}/${rname}/`)
+      utils.message.success(`Copy ${dist}/${rname}/`)
     } else {
       fse.copySync(distPath, rootPath)
-      onSuccess(`Copy ${rname}/`)
+      utils.message.success(`Copy ${rname}/`)
     }
 
     const proc = (d) => {
@@ -112,14 +104,13 @@ switch (mode) {
       const distDir = d ? `${dist}/` : ''
 
       execSync(`${cd}${zipcmd}`)
-      onSuccess(`Create ${distDir}${zname}.zip`)
+      utils.message.success(`Create ${distDir}${zname}.zip`)
 
       // NOTE: Delete duplicate directory
       fs.rmSync(path.join(cwd, `${distDir}${rname}/`), rmOptions)
-      onSuccess(`Remove ${distDir}${rname}/`)
+      utils.message.success(`Remove ${distDir}${rname}/`)
 
       if (zinfo) {
-        console.log('')
         execSync(`${cd}zipinfo ${zname}.zip`, execOptions)
       }
     }
@@ -130,6 +121,4 @@ switch (mode) {
   }
 }
 
-console.log('')
-console.log(colors.blue('info'), packageName, 'Finish')
-console.log('')
+utils.message.finish()

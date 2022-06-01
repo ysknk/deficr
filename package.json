@@ -4,7 +4,7 @@
   "description": "delivery file creator",
   "main": "./index.js",
   "scripts": {
-    "test": "test"
+    "test": "node ./bin/deficr.js"
   },
   "repository": {
     "type": "git",
@@ -22,9 +22,9 @@
   "author": "ysknk",
   "license": "MIT",
   "dependencies": {
-    "find-up": "^6.3.0",
     "fs-extra": "^10.0.1",
+    "node-package-utilities": "github:ysknk/node-package-utilities",
     "path": "^0.12.7",
-    "yargs": "^17.3.1"
+    "yargs": "^17.5.1"
   }
 }
